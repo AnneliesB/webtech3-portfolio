@@ -10,4 +10,4 @@ Lab 2:
 
 ![Flexbox-froggy](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/flexbox-froggy.png)
 
-![CSS GridGarden](hhttps://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/css-gridgarden.png)
+![CSS GridGarden](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/css-gridgarden.png)
