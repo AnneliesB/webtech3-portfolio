@@ -7,6 +7,9 @@ Portfolio voor alle labo's van webtech 3
 ![Git-It](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab1/Git-It%20complete.png)
 
 # Lab 2: Flexbox & Grid
+[Link IMDstagram]()
+
+[IMD festival ticket]() 
 
 ![Flexbox-froggy](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/flexbox-froggy.png)
 
