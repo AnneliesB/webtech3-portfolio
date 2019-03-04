@@ -11,21 +11,34 @@ nav{
 nav a{
     padding: 0.3em 1em;
     text-align: center;
-    flex: 1 1 150px;
+    flex: 1 1 190px;
+    order: 2;
 }
 
 nav a.title {
     text-decoration: none;
     font-weight: bold;
+    color: black;
     font-size: 1.2em;
     flex: 1 1 100vw;
+    order:1;
 }
 
 section{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 section article{
-    flex-wrap: wrap;
     padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+@media(min-width: 980px){
+
+    nav a.title {
+        flex: 1 1 190px;
+        order:2;
+    }
 }
