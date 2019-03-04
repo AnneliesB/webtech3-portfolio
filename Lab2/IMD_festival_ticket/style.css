@@ -10,7 +10,6 @@ body{
 .grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
- 
 }
 
 .title_container{
@@ -41,23 +40,66 @@ body{
 
 .qr_code img{
     max-width: 200px;
-    padding: 4em 0.5em;
+    padding: 6em 0.5em;
+}
+
+.font_style{
+    text-align: center;
+    padding: 0.5em 1em;
+    border: 1px solid black;
 }
 
 .date{
-
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
 }
 
 .amount{
-
+    grid-column: 2 / span 3;
+    grid-row: 4 / 5;
 }
 
 .price{
 
+    grid-column: 1 / span 3;
+    grid-row: 5 / 6;
 }
+
 
 .funny{
     display: none;
 }
 
-//border: 1px solid black;
+
+@media(min-width: 880px){
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .title_container{
+        background-color: white;
+        color: black;
+        grid-column: 1 / span 4;
+        grid-row: 1 / 3;
+        display: grid;
+        padding: 2em 0em;
+        border: 1px solid black;
+    }
+
+    .title{
+        order: 7;
+        padding-bottom: 0;
+        font-size: 4em;
+    }
+
+    .subtitle{
+        order: 1;
+        padding-bottom: 2em;
+    }
+
+    .qr_code{
+        grid-column: 1 / span 3;
+        grid-row: 3 / 4;
+    }
+}
