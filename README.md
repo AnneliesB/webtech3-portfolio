@@ -7,9 +7,9 @@ Portfolio voor alle labo's van webtech 3
 ![Git-It](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab1/Git-It%20complete.png)
 
 ## Lab 2: Flexbox & Grid
-[Repo: cssflexbox](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab2/IMDstagram) || [Codepen: cssflexbox](https://codepen.io/AnneliesB/pen/MxeNEb)
+[Repo: cssflexbox](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab2/ccsflexbox) || [Codepen: cssflexbox](https://codepen.io/AnneliesB/pen/MxeNEb)
 
-[Repo: cssgrid](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab2/IMD_festival_ticket) || [Codepen: cssgrid](https://codepen.io/AnneliesB/pen/EMyqXw)
+[Repo: cssgrid](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab2/cssgrid) || [Codepen: cssgrid](https://codepen.io/AnneliesB/pen/EMyqXw)
 
 ![Flexbox-froggy](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/flexbox-froggy.png)
 
