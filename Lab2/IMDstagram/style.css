@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+nav a{
+    padding: 0.3em 1em;
+    text-align: center;
+    flex: 1 1 150px;
+}
+
+nav a.title {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    flex: 1 1 100vw;
+}
+
+section{
+    display: flex;
+}
+section article{
+    flex-wrap: wrap;
+    padding: 2em;
+
+}
