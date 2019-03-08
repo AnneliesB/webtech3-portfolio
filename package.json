@@ -1,0 +1,23 @@
+{
+  "name": "webtech3-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio voor alle labo's van webtech 3",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnneliesB/webtech3-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnneliesB/webtech3-portfolio/issues"
+  },
+  "homepage": "https://github.com/AnneliesB/webtech3-portfolio#readme"
+}
