@@ -8,7 +8,8 @@ class Note {
     let newNote = document.createElement('div');
     this.title = title;
 
-    newNote.innerHTML = `<p>${this.title} <br><br><a href="#" class="card-remove">Remove</a></p>`;
+    newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
+    newNote.classList.add("card");
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
