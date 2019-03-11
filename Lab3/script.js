@@ -11,7 +11,8 @@ class Note {
     newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
     newNote.classList.add("card");
     // voegt de stijl voor de classe "card" toe aan het gecreeerde element
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    // HINT🤩 
+    //a.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
   }
@@ -20,24 +21,22 @@ class Note {
     // HINT🤩
     // this function should append the note to the screen somehow
     // append child gaat een kind element toevoegen aan de classe notes
-    console.log("hier");
     document.querySelector(".notes").appendChild(this.element);
-
   }
 
   saveToStorage() {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-    itemsArray.push(this.title);
-    localStorage.setItem('items', JSON.stringify(itemsArray));
+
 
   }
 
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    
+
   }
 }
 
@@ -58,24 +57,13 @@ class App {
       }
     });
 
-    this.loadNotesFromStorage();
+    // this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    const data = JSON.parse(localStorage.getItem('items'));
-    if (data.length > 0) {
-      data.forEach(element => {
-        let i = 1;
-        console.log(element + i);
-        let nota = new Note(element);
-        i++;
-        
-        nota.add();
-      });
-    }
 
   }
 
