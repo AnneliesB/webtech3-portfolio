@@ -37,6 +37,7 @@ class Note {
     localStorage.setItem('items', JSON.stringify(itemsArray));
     const data = JSON.parse(localStorage.getItem('items'));
     itemsArray.push(this.title);
+    
     localStorage.setItem('items', JSON.stringify(itemsArray));
 
 
@@ -74,11 +75,14 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-
+    console.log(data[i] + "data");
     if (data.length > 0) {
-      data.forEach(items => {
-        let note = new Note(items);
+      data.forEach(item => {
+        let note = new Note(item[i]);
+        console.log(note + "hier kijken");
+        
         note.add();
+        i++;
       });
     }
   }
@@ -102,5 +106,6 @@ class App {
   }
 
 }
-
+let i = 0;
 let app = new App();
+
