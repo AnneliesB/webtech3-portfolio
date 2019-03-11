@@ -1,3 +1,7 @@
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+
 class Note {
   constructor(title) {
     this.title = title;
@@ -30,12 +34,18 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
 
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+    const data = JSON.parse(localStorage.getItem('items'));
+    itemsArray.push(this.title);
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+
+
   }
 
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    
+
 
   }
 }
@@ -57,7 +67,7 @@ class App {
       }
     });
 
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
@@ -65,6 +75,12 @@ class App {
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
 
+    if (data.length > 0) {
+      data.forEach(items => {
+        let note = new Note(items);
+        note.add();
+      });
+    }
   }
 
   createNote(e) {
