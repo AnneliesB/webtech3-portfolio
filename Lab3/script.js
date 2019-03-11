@@ -1,7 +1,3 @@
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-localStorage.setItem('items', JSON.stringify(itemsArray));
-const data = JSON.parse(localStorage.getItem('items'));
-
 class Note {
   constructor(title) {
     this.title = title;
@@ -32,15 +28,8 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-
-
-    localStorage.setItem('items', JSON.stringify(itemsArray));
-    const data = JSON.parse(localStorage.getItem('items'));
-    itemsArray.push(this.title);
     
-    localStorage.setItem('items', JSON.stringify(itemsArray));
-
-
+    localStorage.setItem('note', JSON.stringify(this.title));
   }
 
   remove() {
@@ -75,16 +64,21 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    console.log(data[i] + "data");
+
+
+    JSON.parse(localStorage.getItem('note'));
+    console.log(JSON.parse(localStorage.getItem('note')));
+    
+
+    /* const data = JSON.parse(localStorage.getItem('items'));
+
     if (data.length > 0) {
       data.forEach(item => {
-        let note = new Note(item[i]);
+        let note = new Note(item);
         console.log(note + "hier kijken");
-        
         note.add();
-        i++;
       });
-    }
+    } */
   }
 
   createNote(e) {
@@ -106,6 +100,5 @@ class App {
   }
 
 }
-let i = 0;
-let app = new App();
 
+let app = new App();
