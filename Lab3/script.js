@@ -20,6 +20,7 @@ class Note {
     // HINT🤩
     // this function should append the note to the screen somehow
     // append child gaat een kind element toevoegen aan de classe notes
+    console.log("hier");
     document.querySelector(".notes").appendChild(this.element);
 
   }
@@ -65,8 +66,16 @@ class App {
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
     const data = JSON.parse(localStorage.getItem('items'));
-    console.log(data);
-    
+    if (data.length > 0) {
+      data.forEach(element => {
+        let i = 1;
+        console.log(element + i);
+        let nota = new Note(element);
+        i++;
+        
+        nota.add();
+      });
+    }
 
   }
 
