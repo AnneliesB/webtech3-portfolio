@@ -28,9 +28,10 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    //console.log(this.title);
-    localStorage.setItem("todo-note", this.title);
-    console.log(localStorage);
+    let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+    itemsArray.push(this.title);
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+
   }
 
   remove() {
@@ -63,6 +64,8 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    
+    
 
   }
 
