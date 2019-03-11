@@ -10,6 +10,7 @@ class Note {
 
     newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
     newNote.classList.add("card");
+    // voegt de stijl voor de classe "card" toe aan het gecreeerde element
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
@@ -18,15 +19,18 @@ class Note {
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
-    
-    document.querySelector(".notes").appendChild(this.element); 
-    
+    // append child gaat een kind element toevoegen aan de classe notes
+    document.querySelector(".notes").appendChild(this.element);
+
   }
 
   saveToStorage() {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    //console.log(this.title);
+    localStorage.setItem("todo-note", this.title);
+    console.log(localStorage);
   }
 
   remove() {
@@ -44,8 +48,8 @@ class App {
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
     this.input = document.querySelector("#txtAddNote");
-    // pressing the enter key should also work
 
+    // pressing the enter key should also work
     this.input.addEventListener("keydown", e => {
       if (e.keyCode == 13) {
         this.createNote();
@@ -59,19 +63,20 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+
   }
 
   createNote(e) {
     // this function should create a new note by using the Note() class
     let noteTitle = document.querySelector("#txtAddNote").value;
     let newnote = new Note(noteTitle);
-    
-    console.log(noteTitle);
+
+    //console.log(noteTitle);
     //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
     console.log("klik");
     // HINT🤩
     newnote.add();
-    // note.saveToStorage();
+    newnote.saveToStorage();
     // this.reset();
   }
 
