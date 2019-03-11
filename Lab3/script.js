@@ -10,9 +10,7 @@ class Note {
 
     newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
     newNote.classList.add("card");
-    // voegt de stijl voor de classe "card" toe aan het gecreeerde element
-    // HINT🤩 
-    //a.addEventListener('click', this.remove.bind(newNote));
+    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
   }
@@ -20,23 +18,19 @@ class Note {
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
-    // append child gaat een kind element toevoegen aan de classe notes
-    document.querySelector(".notes").appendChild(this.element);
+    document.querySelector(".notes").appendChild(this.element); 
+    
   }
 
   saveToStorage() {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    
-    localStorage.setItem('note', JSON.stringify(this.title));
   }
 
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-
-
   }
 }
 
@@ -49,49 +43,35 @@ class App {
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
     this.input = document.querySelector("#txtAddNote");
-
     // pressing the enter key should also work
+
     this.input.addEventListener("keydown", e => {
-      if (e.keyCode == 13) {
+      if (e.keyCode === 13) {
+        e.preventDefault();
         this.createNote();
       }
     });
 
-    this.loadNotesFromStorage();
+    // this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-
-
-    JSON.parse(localStorage.getItem('note'));
-    console.log(JSON.parse(localStorage.getItem('note')));
-    
-
-    /* const data = JSON.parse(localStorage.getItem('items'));
-
-    if (data.length > 0) {
-      data.forEach(item => {
-        let note = new Note(item);
-        console.log(note + "hier kijken");
-        note.add();
-      });
-    } */
   }
 
   createNote(e) {
     // this function should create a new note by using the Note() class
     let noteTitle = document.querySelector("#txtAddNote").value;
     let newnote = new Note(noteTitle);
-
-    //console.log(noteTitle);
+    
+    console.log(noteTitle);
     //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
     console.log("klik");
     // HINT🤩
     newnote.add();
-    newnote.saveToStorage();
+    // note.saveToStorage();
     // this.reset();
   }
 
