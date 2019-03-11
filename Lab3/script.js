@@ -6,7 +6,9 @@ class Note {
 
   createElement(title) {
     let newNote = document.createElement('div');
+    this.title = title;
 
+    newNote.innerHTML = `<p>${this.title} <br><br><a href="#" class="card-remove">Remove</a></p>`;
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
@@ -15,6 +17,9 @@ class Note {
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
+    
+    document.querySelector(".notes").appendChild(this.element); 
+    
   }
 
   saveToStorage() {
@@ -57,13 +62,14 @@ class App {
 
   createNote(e) {
     // this function should create a new note by using the Note() class
-    let newnote = new Note();
     let noteTitle = document.querySelector("#txtAddNote").value;
+    let newnote = new Note(noteTitle);
+    
     console.log(noteTitle);
     //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
     console.log("klik");
     // HINT🤩
-    // note.add();
+    newnote.add();
     // note.saveToStorage();
     // this.reset();
   }
