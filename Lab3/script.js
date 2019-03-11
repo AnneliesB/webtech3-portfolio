@@ -1,7 +1,7 @@
 class Note {
     constructor(title) {
       this.title = title;
-      // HINT🤩 this.element = this.createElement(title);
+      this.element = this.createElement(title);
     }
     
     createElement(title){
@@ -50,6 +50,7 @@ class Note {
     createNote(e){
       // this function should create a new note by using the Note() class
       let newnote = new Note();
+      let noteTitle = document.querySelector("#txtAddNote").value;
       //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
       console.log("klik");
       // HINT🤩
