@@ -57,14 +57,15 @@ class App {
       }
     });
 
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    
+    const data = JSON.parse(localStorage.getItem('items'));
+    console.log(data);
     
 
   }
