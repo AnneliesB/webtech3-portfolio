@@ -6,15 +6,12 @@ class Note {
 
   createElement(title) {
     let newNote = document.createElement('div');
-    this.title = title;
-
-    if (title != null) {
       newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
       newNote.classList.add("card");
       // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
       return newNote;
-    }
+    
   }
 
   add() {
@@ -30,19 +27,27 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     let data = JSON.parse(localStorage.getItem('items'));
-    console.log(data + " data");
+
+    if(data == null){
+      data = [];
+
+    }
+
+    data.push(this.title);
+    localStorage.setItem('items', JSON.stringify(data));
+    /* console.log(data + " data");
 
     if (data != null) {
-      let itemsArray = data;
-      itemsArray.push(this.title);
-      localStorage.setItem('items', JSON.stringify(itemsArray));
-      console.log(itemsArray + " itemsArray");
+      
+      data.push(this.title);
+      localStorage.setItem('items', JSON.stringify(data));
+      console.log(data + " itemsArray");
     } else {
-      let itemsArray = [];
-      itemsArray.push(this.title);
-      localStorage.setItem('items', JSON.stringify(itemsArray));
-      console.log(itemsArray + " data null");
-    }
+      data = [];
+      data.push(this.title);
+      localStorage.setItem('items', JSON.stringify(data));
+      console.log(data + " data null");
+    } */
   }
 
   remove() {
@@ -77,15 +82,17 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    let data = JSON.parse(localStorage.getItem('items'));
-    if(data!=null){
-      data.forEach(item => {
-        let note = new Note(item);
-        console.log(item + " item");
-        note.add();
-      });
+    const data = JSON.parse(localStorage.getItem('items'));
+    if (data != null) {
+      if (data.length > 0) {
+        data.forEach(item => {
+          let note = new Note(item);
+          console.log(item + " item");
+          note.add();
+        });
+      }
     }
-    
+
 
   }
 
@@ -94,9 +101,9 @@ class App {
     let noteTitle = document.querySelector("#txtAddNote").value;
     let newnote = new Note(noteTitle);
 
-    console.log(noteTitle);
+ 
     //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
-    console.log("klik");
+
     // HINT🤩
     newnote.add();
     newnote.saveToStorage();
