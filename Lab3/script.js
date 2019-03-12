@@ -20,6 +20,7 @@ class Note {
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
+    console.log("yeet");
     document.querySelector(".notes").appendChild(this.element);
 
   }
@@ -69,7 +70,7 @@ class App {
       }
     });
 
-    //this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
