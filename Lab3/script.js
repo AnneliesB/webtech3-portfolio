@@ -8,42 +8,46 @@ class Note {
     let newNote = document.createElement('div');
     this.title = title;
 
-    newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
-    newNote.classList.add("card");
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    if (title != null) {
+      newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
+      newNote.classList.add("card");
+      // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
-    return newNote;
+      return newNote;
+    }
   }
 
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
-    document.querySelector(".notes").appendChild(this.element); 
-    
+    document.querySelector(".notes").appendChild(this.element);
+
   }
 
   saveToStorage() {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    let data = JSON.parse(localStorage.getItem('items'));
+    console.log(data + " data");
 
-    // teller om lengte array bij te houden
-    let itemsArray = [];
-
-    if (localStorage.length>0){
-        itemsArray = JSON.parse(localStorage.getItem('items'));
-        let index = itemsArray.length;
-        itemsArray[index] = this.title;
+    if (data != null) {
+      let itemsArray = data;
+      itemsArray.push(this.title);
+      localStorage.setItem('items', JSON.stringify(itemsArray));
+      console.log(itemsArray + " itemsArray");
     } else {
-      itemsArray = this.title;
+      let itemsArray = [];
+      itemsArray.push(this.title);
+      localStorage.setItem('items', JSON.stringify(itemsArray));
+      console.log(itemsArray + " data null");
     }
-    localStorage.setItem("items", JSON.stringify(itemsArray));
   }
 
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    
+
   }
 }
 
@@ -65,31 +69,42 @@ class App {
       }
     });
 
-    // this.loadNotesFromStorage();
+    //this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let data = JSON.parse(localStorage.getItem('items'));
+    if(data!=null){
+      data.forEach(item => {
+        let note = new Note(item);
+        console.log(item + " item");
+        note.add();
+      });
+    }
+    
+
   }
 
   createNote(e) {
     // this function should create a new note by using the Note() class
     let noteTitle = document.querySelector("#txtAddNote").value;
     let newnote = new Note(noteTitle);
-    
+
     console.log(noteTitle);
     //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
     console.log("klik");
     // HINT🤩
     newnote.add();
-    // note.saveToStorage();
-    // this.reset();
+    newnote.saveToStorage();
+    this.reset();
   }
 
   reset() {
     // this function should reset the form 
+    document.querySelector("#txtAddNote").value = "";
   }
 
 }
