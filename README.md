@@ -14,3 +14,7 @@ Portfolio voor alle labo's van webtech 3
 ![Flexbox-froggy](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/flexbox-froggy.png)
 
 ![CSS GridGarden](https://github.com/AnneliesB/webtech3-portfolio/blob/master/Lab2/css-gridgarden.png)
+
+## Lab 3: ES6
+[Repo: ES6](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab3) || [Codepen: ES6](https://codepen.io/AnneliesB/pen/zbRroo)
+
