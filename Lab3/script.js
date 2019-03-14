@@ -10,17 +10,18 @@ class Note {
     newNote.innerHTML = `<p>${title}</p><a href="#" class="card-remove">Remove</a>`;
     newNote.classList.add("card");
     // HINT🤩 
-    //a.addEventListener('click', this.remove.bind(newNote));
    
     let myPromise = new Promise ((resolve, reject)=>{
       setTimeout(()=>{
         let a = document.getElementsByTagName("a");
         // voert functie remove uit om de note te animeren en van scherm te verwijderen
+        // bind bind de functie aan de note dat op dat moment geselecteerd is
+        // zo wordt de functie enkel op dat element uitgevoerd
         a[i].addEventListener('click', this.remove.bind(newNote));
-        // aparte functie om nota na het verwijderen van scherm te verwijderen uit localStorage
+        // aparte functie om nota na het verwijderen van scherm te verwijderen uit localStorage + titel huidige note meegeven
         a[i].addEventListener('click', this.deleteNoteFromStorage.bind(title));
+        // teller gaat omhoog om over de indexen te loopen
         i++;
-        
       }, 1000);
   });
 
@@ -31,7 +32,6 @@ class Note {
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
-
     document.querySelector(".notes").appendChild(this.element);
   }
 
@@ -62,10 +62,12 @@ class Note {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
       let selectedNote = this;
-      
+      // animatie klassen meegeven, card classe inclusief anders wordt deze classe verwijderd
+      selectedNote.setAttribute("class", "card animated slideOutLeft");
       setTimeout( () =>{
+        // lege plaats van de nota laten verdwijnen zodat andere notas kunnen aansluiten
         selectedNote.style.display = "none";
-      }, 400);
+      }, 500);
   }
 
   deleteNoteFromStorage(title){
