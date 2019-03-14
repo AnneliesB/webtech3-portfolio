@@ -1,3 +1,4 @@
+let i = 0;
 class Note {
   constructor(title) {
     this.title = title;
@@ -15,9 +16,12 @@ class Note {
       setTimeout(()=>{
         let a = document.getElementsByTagName("a");
         
-        a.forEach(atag =>{
-          a.addEventListener('click', this.remove.bind(newNote));
-        });
+        // voert functie remove uit om de note te animeren en van scherm te verwijderen en van storage verwijderd
+        a[i].addEventListener('click', this.remove.bind(newNote));
+   
+
+
+        i++;
         
       }, 1000);
   });
@@ -59,8 +63,21 @@ class Note {
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+      let selectedNote = this;
+     
+      setTimeout( () =>{
+         let data = JSON.parse(localStorage.getItem('items'));
+    let clicked = data.indexOf(this);
+    data.splice(clicked, 1);
+    localStorage.setItem('items', JSON.stringify(data));
+        selectedNote.style.display = "none";
+      }, 1000);
 
+      
   }
+
+  
+  
 }
 
 class App {
