@@ -41,13 +41,6 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     let data = JSON.parse(localStorage.getItem('items'));
 
-    /*if(data == null){
-      data = [];
-    }
-    data.push(this.title);
-    localStorage.setItem('items', JSON.stringify(data)); */
-
-
     if (data != null) {
       data.push(this.title);
       localStorage.setItem('items', JSON.stringify(data));
