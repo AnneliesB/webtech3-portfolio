@@ -6,18 +6,25 @@ class Note {
 
   createElement(title) {
     let newNote = document.createElement('div');
-      newNote.innerHTML = `<p>${title}</p><a href="#" class="card-remove">Remove</a>`;
-      newNote.classList.add("card");
-      // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    newNote.innerHTML = `<p>${title}</p><a href="#" class="card-remove">Remove</a>`;
+    newNote.classList.add("card");
+    // HINT🤩 
+    //a.addEventListener('click', this.remove.bind(newNote));
+   
+    let myPromise = new Promise ((resolve, reject)=>{
+      setTimeout(()=>{
+        let a = document.getElementsByTagName("a");
+      }, 1000);
+  });
 
-      return newNote;
-    
+    return newNote;
+
   }
 
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
-    console.log("yeet");
+
     document.querySelector(".notes").appendChild(this.element);
   }
 
@@ -32,7 +39,7 @@ class Note {
     }
     data.push(this.title);
     localStorage.setItem('items', JSON.stringify(data)); */
-    console.log(data + " data");
+
 
     if (data != null) {
       data.push(this.title);
@@ -81,13 +88,10 @@ class App {
       if (data.length > 0) {
         data.forEach(item => {
           let note = new Note(item);
-          console.log(item + " item");
           note.add();
         });
       }
     }
-
-
   }
 
   createNote(e) {
@@ -95,7 +99,7 @@ class App {
     let noteTitle = document.querySelector("#txtAddNote").value;
     let newnote = new Note(noteTitle);
 
- 
+
     //titel van de note ga je moeten halen uit het invulveld dat je hebt in de site
 
     // HINT🤩
