@@ -14,6 +14,7 @@ class Note {
     let myPromise = new Promise ((resolve, reject)=>{
       setTimeout(()=>{
         let a = document.getElementsByTagName("a");
+        console.log(a + " atag");
       }, 1000);
   });
 
