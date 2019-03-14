@@ -14,7 +14,11 @@ class Note {
     let myPromise = new Promise ((resolve, reject)=>{
       setTimeout(()=>{
         let a = document.getElementsByTagName("a");
-        console.log(a + " atag");
+        
+        a.forEach(atag =>{
+          a.addEventListener('click', this.remove.bind(newNote));
+        });
+        
       }, 1000);
   });
 
