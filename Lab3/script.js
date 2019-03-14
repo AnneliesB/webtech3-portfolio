@@ -15,12 +15,10 @@ class Note {
     let myPromise = new Promise ((resolve, reject)=>{
       setTimeout(()=>{
         let a = document.getElementsByTagName("a");
-        
-        // voert functie remove uit om de note te animeren en van scherm te verwijderen en van storage verwijderd
+        // voert functie remove uit om de note te animeren en van scherm te verwijderen
         a[i].addEventListener('click', this.remove.bind(newNote));
-   
-
-
+        // aparte functie om nota na het verwijderen van scherm te verwijderen uit localStorage
+        a[i].addEventListener('click', this.deleteNoteFromStorage.bind(title));
         i++;
         
       }, 1000);
@@ -64,19 +62,26 @@ class Note {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
       let selectedNote = this;
-     
-      setTimeout( () =>{
-         let data = JSON.parse(localStorage.getItem('items'));
-    let clicked = data.indexOf(this);
-    data.splice(clicked, 1);
-    localStorage.setItem('items', JSON.stringify(data));
-        selectedNote.style.display = "none";
-      }, 1000);
-
       
+      setTimeout( () =>{
+        selectedNote.style.display = "none";
+      }, 400);
   }
 
-  
+  deleteNoteFromStorage(title){
+    // storage ophalen
+    let data = JSON.parse(localStorage.getItem('items'));
+    // zoeken welke note geklikt is dmv index en meegegeven titel
+    let clicked = data.indexOf(this);
+    // op basis van de index het geselecteerde element uit de array van data verwijderen
+    // de index is steeds een cijfer minder dan de echte positie omdat arrays vanaf 0 beginnen tellen
+    // om dus bv het tweede element [een = 0, twee = 1] te kunnen verwijderen vinden we de array index van dat tweede element
+    // de array index zal 1 zijn
+    // de splice zal het element dat op de index 1 + 1 plaats staat verwijderen
+    data.splice(clicked, 1);
+    // de localStorage word geupdate na het verwijderen van het geklikte element
+    localStorage.setItem('items', JSON.stringify(data));
+  }
   
 }
 
