@@ -1,7 +1,9 @@
 class Weather {
-    constructor() {
+    constructor(API_KEY) {
+        this.API_KEY = API_KEY;
         console.log("👹");
         this.initialize();
+
     }
 
     initialize() {
@@ -22,10 +24,15 @@ class Weather {
         // browser heeft een eigenschap geolocation die functie aanspreekt
     }
 
-    getWeather(){
+    getWeather(lat, lng) {
+        // AJAX CALL / XHR
+        // https://api.darksky.net/forecast/a0d7e30c611f0dc709e266404cf156db/37.8267,-122.4233?units=si
+
+        let url = `https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
         
     }
 
 }
 
-let app = new Weather();
+let app = new Weather('a0d7e30c611f0dc709e266404cf156db');
+// nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
