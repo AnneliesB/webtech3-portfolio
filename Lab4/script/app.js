@@ -39,6 +39,9 @@ class Weather {
                 document.querySelector("body").appendChild(temp);
             });
     }
+}
+
+class Yoga {
 
 }
 
