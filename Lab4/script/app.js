@@ -29,7 +29,13 @@ class Weather {
         // https://api.darksky.net/forecast/a0d7e30c611f0dc709e266404cf156db/37.8267,-122.4233?units=si
 
         let url = `https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
-        
+        fetch(url)
+            .then(response => {
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+            });
     }
 
 }
