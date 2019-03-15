@@ -35,7 +35,7 @@ class Weather {
             })
             .then(json => {
                 let temp = document.createElement("h1");
-                temp.innerHTML = json.currently.summary;
+                temp.innerHTML = Math.round(json.currently.temperature);
                 document.querySelector("body").appendChild(temp);
             });
     }
@@ -52,7 +52,18 @@ class Yoga {
 
     getYogaPose(){
         let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
-        console.log(url);
+        fetch(url)
+        .then(response =>{
+            return response.json();
+        })
+        .then(json=>{
+            let temp = document.createElement("div");
+            
+            console.log(json);
+            temp.innerHTML=json[6].english_name;
+            // array nummer invullen op basis van de temperatuur
+            document.querySelector("body").appendChild(temp);
+        });
     }
 }
 
