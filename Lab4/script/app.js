@@ -35,8 +35,9 @@ class Weather {
             })
             .then(json => {
                 let temp = document.createElement("h1");
-                temp.innerHTML = Math.round(json.currently.temperature);
-                document.querySelector(".temperatuur").appendChild(temp);
+                let roundedTemp = Math.round(json.currently.temperature);
+                temp.innerHTML = roundedTemp;
+                document.querySelector(".temperatuur").appendChild(temp);  
             });
     }
 }
