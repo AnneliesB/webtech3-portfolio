@@ -42,7 +42,13 @@ class Weather {
 }
 
 class Yoga {
+    constructor(){
+        this.initialize();
+    }
 
+    initialize(){
+        
+    }
 }
 
 let app = new Weather('a0d7e30c611f0dc709e266404cf156db');
