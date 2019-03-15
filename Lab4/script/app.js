@@ -36,7 +36,7 @@ class Weather {
             .then(json => {
                 let temp = document.createElement("h1");
                 temp.innerHTML = Math.round(json.currently.temperature);
-                document.querySelector("body").appendChild(temp);
+                document.querySelector(".temperatuur").appendChild(temp);
             });
     }
 }
@@ -58,11 +58,13 @@ class Yoga {
         })
         .then(json=>{
             let temp = document.createElement("div");
-            
+            let img = json[6].img_url;
+            let poseName= json[6].english_name;
             console.log(json);
-            temp.innerHTML=json[6].english_name;
+            temp.innerHTML=`${poseName}<img src=${img} width="100px">`;
+            /* temp.innerHTML=`<img src=`; */
             // array nummer invullen op basis van de temperatuur
-            document.querySelector("body").appendChild(temp);
+            document.querySelector(".yoga").appendChild(temp);
         });
     }
 }
