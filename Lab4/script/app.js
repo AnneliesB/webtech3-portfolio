@@ -34,7 +34,9 @@ class Weather {
                 return response.json();
             })
             .then(json => {
-                console.log(json);
+                let temp = document.createElement("h1");
+                temp.innerHTML = json.currently.summary;
+                document.querySelector("body").appendChild(temp);
             });
     }
 
