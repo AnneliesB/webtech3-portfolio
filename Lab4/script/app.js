@@ -51,7 +51,7 @@ class Yoga {
     }
 
     getYogaPose(){
-        let url = `https://github.com/rebeccaestes/yoga_api/blob/master/yoga_api.json`;
+        let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
         console.log(url);
     }
 }
