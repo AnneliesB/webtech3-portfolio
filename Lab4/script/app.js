@@ -1,26 +1,29 @@
-class Weather{
-    constructor(){
+class Weather {
+    constructor() {
         console.log("👹");
         this.initialize();
     }
 
-    initialize(){
+    initialize() {
         this.getMyLocation();
         //console.log(navigator);
     }
 
-    getMyLocation(){
+    getMyLocation() {
         console.log("Getting location 🏠");
-        navigator.geolocation.getCurrentPosition(position=>{
-            console.log("found you");
+        navigator.geolocation.getCurrentPosition(position => {
             let lat = position.coords.latitude;
             let lng = position.coords.longitude;
-            
+            this.getWeather(lat, lng);
 
-        }, err =>{
+        }, err => {
             console.log(err);
         });
         // browser heeft een eigenschap geolocation die functie aanspreekt
+    }
+
+    getWeather(){
+        
     }
 
 }
