@@ -56,6 +56,8 @@ class Yoga {
     }
 }
 
+
+
 let weatherApp = new Weather('a0d7e30c611f0dc709e266404cf156db');
 let yogaApp = new Yoga();
 // nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
