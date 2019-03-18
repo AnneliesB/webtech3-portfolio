@@ -38,7 +38,7 @@ class Weather {
         if (oldtime) {
             // we have data
             let intOldTime = parseInt(oldtime);
-            console.log(intOldTime + "int old time");
+            
             if ((intOldTime + DATATIMEOUT) < t) {
                 // de tijd nu is groter dan de opgeslagen tijd + de timeout
                 localStorage.setItem('yoga-time', t);
@@ -54,7 +54,7 @@ class Weather {
                             // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
                             temp.innerHTML = roundedTemp;
                             document.querySelector(".temperatuur").appendChild(temp);
-        
+                            localStorage.setItem('current-temperature', JSON.stringify(roundedTemp));
                             return roundedTemp;
                         });
                 }
@@ -91,7 +91,8 @@ class Weather {
                                     /* temp.innerHTML=`<img src=`; */
                                     // array nummer invullen op basis van de temperatuur
                                     document.querySelector(".yoga").appendChild(temp);
-        
+                                    localStorage.setItem('yoga-image', JSON.stringify(img));
+                                    localStorage.setItem('yoga-name', JSON.stringify(poseName));
                                 });
                         }
                     }
@@ -101,9 +102,18 @@ class Weather {
                 });
                 console.log("localStorage updated");
             } else {
-
                 // load local storage info
                 console.log("localStorage is up to date");
+                let tempT = document.createElement("h1");
+                let storageTemperature = JSON.parse(localStorage.getItem('current-temperature'));
+                tempT.innerHTML = storageTemperature;
+                document.querySelector(".temperatuur").appendChild(tempT);
+
+                let tempY = document.createElement("div");
+                let storageImage = JSON.parse(localStorage.getItem('yoga-image'));
+                let storagePose = JSON.parse(localStorage.getItem('yoga-name'));
+                tempY.innerHTML = `${storagePose}<img src=${storageImage} width="100px">`;
+                document.querySelector(".yoga").appendChild(tempY);
             }
 
         } else {
@@ -181,4 +191,4 @@ class Weather {
 
 let weatherApp = new Weather('a0d7e30c611f0dc709e266404cf156db');
 // nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
-const DATATIMEOUT = 6000;
+const DATATIMEOUT = 60000*60;
