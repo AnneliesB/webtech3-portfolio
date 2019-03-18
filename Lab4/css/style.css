@@ -1,0 +1,23 @@
+body{
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+    letter-spacing: 1px;
+    max-width: 200px;
+    max-height: 250px;
+    text-align: center;
+}
+
+.container{
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+h1{
+    font-size: 1em;
+}
+
+.yogaImg{
+    height: 130px;
+    padding-top: 1.1em;
+}

@@ -53,7 +53,7 @@ class Weather {
                             roundedTemp = Math.round(json.currently.temperature);
                             // roundedTemp = 49;
                             // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
-                            temp.innerHTML = roundedTemp;
+                            temp.innerHTML = `It is currently ${roundedTemp} °C. Time to relax!`;
                             document.querySelector(".temperatuur").appendChild(temp);
                             localStorage.setItem('current-temperature', JSON.stringify(roundedTemp));
                             return roundedTemp;
@@ -79,7 +79,8 @@ class Weather {
                                     return response.json();
                                 })
                                 .then(json => {
-                                    let temp = document.createElement("div");
+                                    let temp1 = document.createElement("div");
+                                    let temp2 = document.createElement("div");
                                     result = result - 1;
                                     if (result < 0 || result > 47) {
                                         result = Math.floor(Math.random() * 49);
@@ -88,10 +89,12 @@ class Weather {
                                     let img = json[result].img_url;
                                     let poseName = json[result].english_name;
                                     console.log(json);
-                                    temp.innerHTML = `${poseName}<img src=${img} width="100px">`;
+                                    temp1.innerHTML = `<img src=${img} width="100px">`;
+                                    temp2.innerHTML = `${poseName}`;
                                     /* temp.innerHTML=`<img src=`; */
                                     // array nummer invullen op basis van de temperatuur
-                                    document.querySelector(".yoga").appendChild(temp);
+                                    document.querySelector(".yogaImg").appendChild(temp1);
+                                    document.querySelector(".yogaName").appendChild(temp2);
                                     localStorage.setItem('yoga-image', JSON.stringify(img));
                                     localStorage.setItem('yoga-name', JSON.stringify(poseName));
                                 });
@@ -107,14 +110,17 @@ class Weather {
                 console.log("localStorage is up to date");
                 let tempT = document.createElement("h1");
                 let storageTemperature = JSON.parse(localStorage.getItem('current-temperature'));
-                tempT.innerHTML = storageTemperature;
+                tempT.innerHTML = `It is currently ${storageTemperature} °C. Time to relax!`;
                 document.querySelector(".temperatuur").appendChild(tempT);
 
-                let tempY = document.createElement("div");
+                let tempY1 = document.createElement("div");
+                let tempY2 = document.createElement("div");
                 let storageImage = JSON.parse(localStorage.getItem('yoga-image'));
                 let storagePose = JSON.parse(localStorage.getItem('yoga-name'));
-                tempY.innerHTML = `${storagePose}<img src=${storageImage} width="100px">`;
-                document.querySelector(".yoga").appendChild(tempY);
+                tempY1.innerHTML = `<img src=${storageImage} width="100px">`;
+                tempY2.innerHTML = `${storagePose}`;
+                document.querySelector(".yogaImg").appendChild(tempY1);
+                document.querySelector(".yogaName").appendChild(tempY2);
             }
 
         } else {
@@ -131,7 +137,7 @@ class Weather {
                         roundedTemp = Math.round(json.currently.temperature);
                         // roundedTemp = 49;
                         // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
-                        temp.innerHTML = roundedTemp;
+                        temp.innerHTML = `It is currently ${roundedTemp} °C. Time to relax!`;
                         document.querySelector(".temperatuur").appendChild(temp);
                         localStorage.setItem('current-temperature', JSON.stringify(roundedTemp));
                         return roundedTemp;
@@ -157,7 +163,8 @@ class Weather {
                                 return response.json();
                             })
                             .then(json => {
-                                let temp = document.createElement("div");
+                                let temp1 = document.createElement("div");
+                                let temp2 = document.createElement("div");
                                 result = result - 1;
                                 if (result < 0 || result > 47) {
                                     result = Math.floor(Math.random() * 49);
@@ -166,10 +173,12 @@ class Weather {
                                 let img = json[result].img_url;
                                 let poseName = json[result].english_name;
                                 console.log(json);
-                                temp.innerHTML = `${poseName}<img src=${img} width="100px">`;
+                                temp1.innerHTML = `<img src=${img} width="100px">`;
+                                temp2.innerHTML = `${poseName}`;
                                 /* temp.innerHTML=`<img src=`; */
                                 // array nummer invullen op basis van de temperatuur
-                                document.querySelector(".yoga").appendChild(temp);
+                                document.querySelector(".yogaImg").appendChild(temp1);
+                                document.querySelector(".yogaName").appendChild(temp2);
                                 localStorage.setItem('yoga-image', JSON.stringify(img));
                                 localStorage.setItem('yoga-name', JSON.stringify(poseName));
                             });
