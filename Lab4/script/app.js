@@ -50,7 +50,34 @@ class Weather {
         fetchDemo().then(result=>{
             console.log(result + "test");
 
+            class Yoga {
+                constructor(){
+                    this.initialize();
+                }
             
+                initialize(){
+                    this.getYogaPose();
+                }
+            
+                getYogaPose(){
+                    let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
+                    fetch(url)
+                    .then(response =>{
+                        return response.json();
+                    })
+                    .then(json=>{
+                        let temp = document.createElement("div");
+                        let img = json[6].img_url;
+                        let poseName= json[6].english_name;
+                        console.log(json);
+                        temp.innerHTML=`${poseName}<img src=${img} width="100px">`;
+                        /* temp.innerHTML=`<img src=`; */
+                        // array nummer invullen op basis van de temperatuur
+                        document.querySelector(".yoga").appendChild(temp);
+                    });
+                }
+            }
+
 
         });
         /* fetch(url)
@@ -69,33 +96,7 @@ class Weather {
     }
 }
 
-class Yoga {
-    constructor(){
-        this.initialize();
-    }
 
-    initialize(){
-        this.getYogaPose();
-    }
-
-    getYogaPose(){
-        let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
-        fetch(url)
-        .then(response =>{
-            return response.json();
-        })
-        .then(json=>{
-            let temp = document.createElement("div");
-            let img = json[6].img_url;
-            let poseName= json[6].english_name;
-            console.log(json);
-            temp.innerHTML=`${poseName}<img src=${img} width="100px">`;
-            /* temp.innerHTML=`<img src=`; */
-            // array nummer invullen op basis van de temperatuur
-            document.querySelector(".yoga").appendChild(temp);
-        });
-    }
-}
 
 
 
