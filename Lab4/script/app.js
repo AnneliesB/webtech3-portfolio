@@ -40,7 +40,7 @@ class Weather {
                 .then(json => {
                     let temp = document.createElement("h1");
                     roundedTemp = Math.round(json.currently.temperature);
-                    //roundedTemp = -18; 
+                    roundedTemp = 49;
                     // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
                     temp.innerHTML = roundedTemp;
                     document.querySelector(".temperatuur").appendChild(temp);
@@ -71,18 +71,18 @@ class Weather {
                         .then(json => {
                             let temp = document.createElement("div");
                             result = result - 1;
-                            if (result <0) {
+                            if (result < 0 || result > 47) {
                                 result = Math.floor(Math.random() * 49);
                                 // if temperature is below 0 show a random pose
-                            } 
-                                let img = json[result].img_url;
-                                let poseName = json[result].english_name;
-                                console.log(json);
-                                temp.innerHTML = `${poseName}<img src=${img} width="100px">`;
-                                /* temp.innerHTML=`<img src=`; */
-                                // array nummer invullen op basis van de temperatuur
-                                document.querySelector(".yoga").appendChild(temp);
-                            
+                            }
+                            let img = json[result].img_url;
+                            let poseName = json[result].english_name;
+                            console.log(json);
+                            temp.innerHTML = `${poseName}<img src=${img} width="100px">`;
+                            /* temp.innerHTML=`<img src=`; */
+                            // array nummer invullen op basis van de temperatuur
+                            document.querySelector(".yoga").appendChild(temp);
+
                         });
                 }
             }
