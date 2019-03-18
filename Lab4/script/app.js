@@ -27,18 +27,45 @@ class Weather {
     getWeather(lat, lng) {
         // AJAX CALL / XHR
         // https://api.darksky.net/forecast/a0d7e30c611f0dc709e266404cf156db/37.8267,-122.4233?units=si
+        let roundedTemp = this;
+        
 
         let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
-        fetch(url)
+
+        function fetchDemo() {
+            return fetch(url)
+            .then(response =>{
+                return response.json();
+            })
+            .then(json=>{
+                let temp = document.createElement("h1");
+                roundedTemp = Math.round(json.currently.temperature);
+                temp.innerHTML = roundedTemp;
+                document.querySelector(".temperatuur").appendChild(temp);  
+                console.log(roundedTemp + " in de fetch");
+                return roundedTemp;
+            });
+        }
+    
+        fetchDemo().then(result=>{
+            console.log(result + "test");
+
+            
+
+        });
+        /* fetch(url)
             .then(response => {
                 return response.json();
             })
             .then(json => {
                 let temp = document.createElement("h1");
-                let roundedTemp = Math.round(json.currently.temperature);
+                roundedTemp = Math.round(json.currently.temperature);
                 temp.innerHTML = roundedTemp;
                 document.querySelector(".temperatuur").appendChild(temp);  
+                console.log(roundedTemp + " in de fetch");
+                return roundedTemp;
             });
+            console.log(this.roundedTemp + " uit de fetch in getWeather") */
     }
 }
 
@@ -73,5 +100,5 @@ class Yoga {
 
 
 let weatherApp = new Weather('a0d7e30c611f0dc709e266404cf156db');
-let yogaApp = new Yoga();
 // nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
+let yogaApp = new Yoga();
