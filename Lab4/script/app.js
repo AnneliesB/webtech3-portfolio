@@ -9,7 +9,7 @@ class Weather {
     initialize() {
         //this.getMyLocation();
         //console.log(navigator);
-        let timmy = setInterval(this.getMyLocation(), 20000);
+        let timmy = setInterval(this.getMyLocation(), 1000);
     }
 
     getMyLocation() {
@@ -45,13 +45,13 @@ class Weather {
                     temp.innerHTML = roundedTemp;
                     document.querySelector(".temperatuur").appendChild(temp);
 
-                    let oldTime = localStorage.getItem('yoga-time');
+                    let oldTime = localStorage.getItem('weather-time');
                     if (oldTime) {
                         // we have data
                         let intOldTime = parseInt(oldTime);
 
-                        if (intOldTime + DATATIMEOUT < t) {
-                            localStorage.setItem('yoga-time', t);
+                        if (oldTime + DATATIMEOUT < t) {
+                            localStorage.setItem('weather-time', t);
                             let currTemps = JSON.stringify(currTemp);
                             localStorage.setItem('current-temperature', currTemps);
                             console.log("list updated");
@@ -60,7 +60,7 @@ class Weather {
                             console.log("list is up to date");
                         }
                     } else {
-                        localStorage.setItem('yoga-time', t);
+                        localStorage.setItem('weather-time', t);
                         let currTemps = JSON.stringify(currTemp);
                         localStorage.setItem('current-temperature', currTemps);
                         console.log("list created");
@@ -90,12 +90,16 @@ class Weather {
                             return response.json();
                         })
                         .then(json => {
+                            let now = new Date();
+                            let t = now.getTime();
+                            console.log(t + "tajm");
                             let temp = document.createElement("div");
                             result = result - 1;
                             if (result < 0 || result > 47) {
                                 result = Math.floor(Math.random() * 49);
                                 // if temperature is below 0 or above 47 show a random pose
                             }
+
                             let img = json[result].img_url;
                             let poseName = json[result].english_name;
                             console.log(json);
@@ -103,6 +107,27 @@ class Weather {
                             /* temp.innerHTML=`<img src=`; */
                             // array nummer invullen op basis van de temperatuur
                             document.querySelector(".yoga").appendChild(temp);
+
+                            let oldTime = localStorage.getItem('yoga-time');
+                            if (oldTime) {
+                                if (oldTime + DATATIMEOUT < t) {
+                                    localStorage.setItem('yoga-time', t);
+                                    let imgs = JSON.stringify(img);
+                                    let poseNames = JSON.stringify(poseName);
+                                    localStorage.setItem('yoga-image', imgs);
+                                    localStorage.setItem('yoga-posename', poseNames);
+                                    console.log("Yoga list updated");
+                                } else {
+                                    console.log("Yoga list is up to date");
+                                }
+                            } else {
+                                localStorage.setItem('yoga-time', t);
+                                let imgs = JSON.stringify(img);
+                                let poseNames = JSON.stringify(poseName);
+                                localStorage.setItem('yoga-image', imgs);
+                                localStorage.setItem('yoga-posename', poseNames);
+                                console.log("Yoga list created");
+                            }
 
                         });
                 }
