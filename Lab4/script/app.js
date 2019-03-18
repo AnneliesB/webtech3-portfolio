@@ -38,10 +38,11 @@ class Weather {
         if (oldtime) {
             // we have data
             let intOldTime = parseInt(oldtime);
-            
+
             if ((intOldTime + DATATIMEOUT) < t) {
                 // de tijd nu is groter dan de opgeslagen tijd + de timeout
                 localStorage.setItem('yoga-time', t);
+
                 function fetchDemo() {
                     return fetch(url)
                         .then(response => {
@@ -58,19 +59,19 @@ class Weather {
                             return roundedTemp;
                         });
                 }
-        
+
                 fetchDemo().then(result => {
                     console.log(result + "test");
-        
+
                     class Yoga {
                         constructor() {
                             this.initialize();
                         }
-        
+
                         initialize() {
                             this.getYogaPose();
                         }
-        
+
                         getYogaPose() {
                             let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
                             fetch(url)
@@ -97,8 +98,8 @@ class Weather {
                         }
                     }
                     let yogaApp = new Yoga();
-        
-        
+
+
                 });
                 console.log("localStorage updated");
             } else {
@@ -119,6 +120,7 @@ class Weather {
         } else {
             // no data stored yet
             localStorage.setItem('yoga-time', t);
+
             function fetchDemo() {
                 return fetch(url)
                     .then(response => {
@@ -131,7 +133,7 @@ class Weather {
                         // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
                         temp.innerHTML = roundedTemp;
                         document.querySelector(".temperatuur").appendChild(temp);
-
+                        localStorage.setItem('current-temperature', JSON.stringify(roundedTemp));
                         return roundedTemp;
                     });
             }
@@ -168,7 +170,8 @@ class Weather {
                                 /* temp.innerHTML=`<img src=`; */
                                 // array nummer invullen op basis van de temperatuur
                                 document.querySelector(".yoga").appendChild(temp);
-
+                                localStorage.setItem('yoga-image', JSON.stringify(img));
+                                localStorage.setItem('yoga-name', JSON.stringify(poseName));
                             });
                     }
                 }
@@ -182,13 +185,9 @@ class Weather {
 
     }
 
-    
+
 }
-
-
-
-
 
 let weatherApp = new Weather('a0d7e30c611f0dc709e266404cf156db');
 // nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
-const DATATIMEOUT = 60000*60;
+const DATATIMEOUT = 60000 * 60;
