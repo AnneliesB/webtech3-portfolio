@@ -7,8 +7,9 @@ class Weather {
     }
 
     initialize() {
-        this.getMyLocation();
+        //this.getMyLocation();
         //console.log(navigator);
+        let timmy = setInterval(this.getMyLocation(), 20000);
     }
 
     getMyLocation() {
@@ -26,10 +27,7 @@ class Weather {
 
     getWeather(lat, lng) {
         // AJAX CALL / XHR
-        // https://api.darksky.net/forecast/a0d7e30c611f0dc709e266404cf156db/37.8267,-122.4233?units=si
         let roundedTemp = this;
-
-
         let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
 
         function fetchDemo() {
@@ -38,13 +36,36 @@ class Weather {
                     return response.json();
                 })
                 .then(json => {
+                    let t = json.currently.time;
+                    let currTemp = json.currently.temperature;
                     let temp = document.createElement("h1");
-                    roundedTemp = Math.round(json.currently.temperature);
+                    roundedTemp = Math.round(currTemp);
                     // roundedTemp = 49;
                     // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
                     temp.innerHTML = roundedTemp;
                     document.querySelector(".temperatuur").appendChild(temp);
-                    
+
+                    let oldTime = localStorage.getItem('yoga-time');
+                    if (oldTime) {
+                        // we have data
+                        let intOldTime = parseInt(oldTime);
+
+                        if (intOldTime + DATATIMEOUT < t) {
+                            localStorage.setItem('yoga-time', t);
+                            let currTemps = JSON.stringify(currTemp);
+                            localStorage.setItem('current-temperature', currTemps);
+                            console.log("list updated");
+                        } else {
+                            // no update required
+                            console.log("list is up to date");
+                        }
+                    } else {
+                        localStorage.setItem('yoga-time', t);
+                        let currTemps = JSON.stringify(currTemp);
+                        localStorage.setItem('current-temperature', currTemps);
+                        console.log("list created");
+                    }
+
 
                     return roundedTemp;
                 });
@@ -90,19 +111,6 @@ class Weather {
 
 
         });
-        /* fetch(url)
-            .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                let temp = document.createElement("h1");
-                roundedTemp = Math.round(json.currently.temperature);
-                temp.innerHTML = roundedTemp;
-                document.querySelector(".temperatuur").appendChild(temp);  
-                console.log(roundedTemp + " in de fetch");
-                return roundedTemp;
-            });
-            console.log(this.roundedTemp + " uit de fetch in getWeather") */
     }
 }
 
@@ -112,3 +120,4 @@ class Weather {
 
 let weatherApp = new Weather('a0d7e30c611f0dc709e266404cf156db');
 // nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
+const DATATIMEOUT = 60;
