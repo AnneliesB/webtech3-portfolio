@@ -40,9 +40,11 @@ class Weather {
             .then(json=>{
                 let temp = document.createElement("h1");
                 roundedTemp = Math.round(json.currently.temperature);
+                // roundedTemp = 18; test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
                 temp.innerHTML = roundedTemp;
                 document.querySelector(".temperatuur").appendChild(temp);  
                 console.log(roundedTemp + " in de fetch");
+                
                 return roundedTemp;
             });
         }
