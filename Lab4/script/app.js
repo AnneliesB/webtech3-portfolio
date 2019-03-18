@@ -67,8 +67,9 @@ class Weather {
                     })
                     .then(json=>{
                         let temp = document.createElement("div");
-                        let img = json[6].img_url;
-                        let poseName= json[6].english_name;
+                        result = result-1;
+                        let img = json[result].img_url;
+                        let poseName= json[result].english_name;
                         console.log(json);
                         temp.innerHTML=`${poseName}<img src=${img} width="100px">`;
                         /* temp.innerHTML=`<img src=`; */
@@ -77,6 +78,7 @@ class Weather {
                     });
                 }
             }
+            let yogaApp = new Yoga();
 
 
         });
@@ -102,4 +104,3 @@ class Weather {
 
 let weatherApp = new Weather('a0d7e30c611f0dc709e266404cf156db');
 // nu hebben we een soort plugin geschreven waarbij andere gebruikers het programma ook kunnen gebruiken
-let yogaApp = new Yoga();
