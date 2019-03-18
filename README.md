@@ -18,3 +18,6 @@ Portfolio voor alle labo's van webtech 3
 ## Lab 3: ES6
 [Repo: ES6](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab3) || [Codepen: ES6](https://codepen.io/AnneliesB/pen/zbRroo)
 
+## Lab 4: API
+[Repo: WeatherYoga](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab4) 
+
