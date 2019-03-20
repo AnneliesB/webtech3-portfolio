@@ -1,7 +1,7 @@
 class Weather {
     constructor(API_KEY) {
         this.API_KEY = API_KEY;
-        console.log("??");
+        console.log("👹");
         this.initialize();
 
     }
@@ -12,7 +12,7 @@ class Weather {
     }
 
     getMyLocation() {
-        console.log("Getting location ??");
+        console.log("Getting location 🏠");
         navigator.geolocation.getCurrentPosition(position => {
             let lat = position.coords.latitude;
             let lng = position.coords.longitude;
@@ -31,7 +31,7 @@ class Weather {
         let roundedTemp = this;
 
 
-        let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
+        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
         let now = new Date();
         let t = now.getTime();
 
@@ -56,7 +56,7 @@ class Weather {
                             console.log(json.currently.temperature);
                                 // roundedTemp = 49;
                                 // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
-                                temp.innerHTML = `It is currently ${roundedTemp} C. Time to relax!`;
+                                temp.innerHTML = `It is currently ${roundedTemp} °C. Time to relax!`;
                                 document.querySelector(".temperatuur").appendChild(temp);
                                 localStorage.setItem('current-temperature', JSON.stringify(roundedTemp));
                                 return roundedTemp;
@@ -122,7 +122,7 @@ class Weather {
                 console.log("localStorage is up to date");
                 let tempT = document.createElement("h1");
                 let storageTemperature = JSON.parse(localStorage.getItem('current-temperature'));
-                tempT.innerHTML = `It is currently ${storageTemperature} C. Time to relax!`;
+                tempT.innerHTML = `It is currently ${storageTemperature} °C. Time to relax!`;
                 document.querySelector(".temperatuur").appendChild(tempT);
 
                 let tempY1 = document.createElement("div");
@@ -140,7 +140,7 @@ class Weather {
             localStorage.setItem('yoga-time', t);
 
             function fetchDemo() {
-                let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API_KEY}/${lat},${lng}?units=si`;
+                let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API_KEY}/${lat},${lng}?units=si`;
                 return fetch(url, {
                     method: 'get'
                 }).then(response => {
@@ -151,7 +151,7 @@ class Weather {
                     roundedTemp = Math.round(json.currently.temperature);
                         // roundedTemp = 49;
                         // test responsiveness naar temperatuur verandering door de let roundedTemp hardcoded te wijzigen
-                        temp.innerHTML = `It is currently ${roundedTemp} C. Time to relax!`;
+                        temp.innerHTML = `It is currently ${roundedTemp} °C. Time to relax!`;
                         document.querySelector(".temperatuur").appendChild(temp);
                         localStorage.setItem('current-temperature', JSON.stringify(roundedTemp));
                         return roundedTemp;
