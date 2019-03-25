@@ -6,6 +6,9 @@ module.exports = {
   requestListener: (req, res) => {
     var q = url.parse(req.url, true);
     var filename = "Lab_NodeJS_basics" + q.pathname;
+    if(filename == "Lab_NodeJS_basics/"){
+        filename = "Lab_NodeJS_basics/index.html"
+    }
     fs.readFile(filename, function(err, data) {
       if (err) {
         res.writeHead(404, {'Content-Type': 'text/html'});
