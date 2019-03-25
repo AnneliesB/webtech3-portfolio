@@ -5,9 +5,9 @@ const url = require('url');
 module.exports = {
   requestListener: (req, res) => {
     var q = url.parse(req.url, true);
-    var filename = "Lab_NodeJS_basics" + q.pathname;
-    if(filename == "Lab_NodeJS_basics/"){
-        filename = "Lab_NodeJS_basics/index.html"
+    var filename = "Lab5" + q.pathname;
+    if(filename == "Lab5/"){
+        filename = "Lab5/index.html"
     }
     fs.readFile(filename, function(err, data) {
       if (err) {
