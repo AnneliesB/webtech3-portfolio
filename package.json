@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel Lab3/src -d Lab3/dist"
+    "build": "babel Lab3/src -d Lab3/dist",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
