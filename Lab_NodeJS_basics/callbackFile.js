@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+
 module.exports = {
   requestListener: (req, res) => {
   fs.readFile('Lab_NodeJS_basics/index.html',  'utf-8', (err, data) => {
