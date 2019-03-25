@@ -1,14 +1,18 @@
 /* const http = require('http');
 let {requestListener} = require('./callbackFile');
-const PORT = process.env.PORT || 4001;
+
 
 const server = http.createServer(requestListener);
 
 server.listen(PORT); */
 
+
+
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
+
+const PORT = process.env.PORT || 4001;
 
 http.createServer((req, res) => {
   var q = url.parse(req.url, true);
@@ -22,4 +26,4 @@ http.createServer((req, res) => {
     res.write(data);
     return res.end();
   });
-}).listen(4001);
+}).listen(PORT);
