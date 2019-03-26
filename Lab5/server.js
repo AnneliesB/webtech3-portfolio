@@ -8,6 +8,6 @@ const port = 4001;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./app/routes')(app, {});
-app.listen(process.env.port, '78.23.102.197', () => {
+app.listen(port, () => {
   console.log('We are live on ' + port);
 });
