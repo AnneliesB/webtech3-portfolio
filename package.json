@@ -4,18 +4,22 @@
   "description": "Portfolio voor alle labo's van webtech 3",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "mongodb": "^2.2.16",
     "save-dev": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel Lab3/src -d Lab3/dist",
-    "start": "node Lab5/index.js"
+    "start": "node Lab5/index.js",
+    "dev": "nodemon Lab5/server.js"
   },
   "repository": {
     "type": "git",
