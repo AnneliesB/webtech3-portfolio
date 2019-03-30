@@ -21,3 +21,6 @@ Portfolio voor alle labo's van webtech 3
 ## Lab 4: API
 [Repo: WeatherYoga](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab4) || [Codepen: API](https://codepen.io/AnneliesB/pen/vPzMqG)
 
+## Lab 5: Node.js || Express
+[Repo: Node.js](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab5) || [Codepen: Lab 5 checker](https://codepen.io/AnneliesB/pen/QPLYpm)
+
