@@ -38,7 +38,7 @@ let del = (req, res, next) =>{
     });
 };
 
-// GET: /api/v1/messages/?user=username
+// GET: /api/v1/messages?user=username
 let getuser = (req, res, next) =>{
     res.json({
         "status": "success",
