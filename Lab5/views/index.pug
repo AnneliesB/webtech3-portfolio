@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header
+  .wrapper
+    nav
+      a(href='index.pug') Home
+      a(href='features.pug') Features
+    .content
+      h1 IMD-chat bot
+      p.slogan chat. laugh. learn.
+      a.cta(href='features.pug') Check out our cool features!
+  footer
+    .wrapper
+      | &copy; Morro &amp; Annelies
