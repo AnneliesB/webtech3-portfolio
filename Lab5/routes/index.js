@@ -22,7 +22,7 @@ router.get('/features.pug', function (req, res, next) {
   });
 });
 
-// router GET: /api/v1/messages
+// router GET: /api/v1/messages OR /api/v1/messages?user=username
 router.get('/api/v1/messages', messageController.get);
 
 // router GET: /api/v1/messages/:id
@@ -36,8 +36,5 @@ router.put('/api/v1/messages/:id', messageController.putid);
 
 // router DELETE: /api/v1/messages/:id
 router.delete('/api/v1/messages/:id', messageController.del);
-
-// router GET: /api/v1/messages?user=username
-router.get('/api/v1/messages?user=username', messageController.getuser);
 
 module.exports = router;
