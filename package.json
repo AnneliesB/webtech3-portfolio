@@ -2,11 +2,13 @@
   "name": "webtech3-portfolio",
   "version": "1.0.0",
   "description": "Portfolio voor alle labo's van webtech 3",
-  "main": "index.js",
+  "main": "Lab5/bin/www",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-generate": "^1.0.12",
     "mongodb": "^2.2.16",
     "save-dev": "^2.0.0"
   },
@@ -19,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel Lab3/src -d Lab3/dist",
     "start": "node Lab5/bin/www",
-    "dev": "nodemon Lab5/server.js"
+    "dev": "nodemon Lab5/bin/www"
   },
   "repository": {
     "type": "git",
