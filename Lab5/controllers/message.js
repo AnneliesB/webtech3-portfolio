@@ -5,12 +5,12 @@ let get = (req, res) => {
         res.json({
             "status": "success",
             "message": "GETTING message for username: " + username
-        })
+        });
     } else {
         res.json({
             "status": "success",
             "message": "GETTING messages"
-        })
+        });
     }
 };
 
@@ -20,7 +20,7 @@ let getid = (req, res) => {
     res.json({
         "status": "success",
         "message": "GETTING messages with ID: " + id
-    })
+    });
 };
 
 // POST: /api/v1/messages
@@ -28,7 +28,7 @@ let post = (req, res) => {
     res.json({
         "status": "success",
         "message": "POSTING a new message for user Pikachu"
-    })
+    });
 };
 
 // PUT: /api/v1/messages/:id
@@ -37,7 +37,7 @@ let putid = (req, res) => {
     res.json({
         "status": "success",
         "message": "UPDATING a message with ID: " + id
-    })
+    });
 };
 
 // DELETE: /api/v1/messages/:id
@@ -46,7 +46,7 @@ let del = (req, res)=> {
     res.json({
         "status": "success",
         "message": "DELETING a message with ID: " + id
-    })
+    });
 };
 
 
