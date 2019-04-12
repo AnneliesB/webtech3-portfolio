@@ -24,3 +24,7 @@ Portfolio voor alle labo's van webtech 3
 ## Lab 5: Node.js || Express
 [Repo: Node.js](https://github.com/AnneliesB/webtech3-portfolio/tree/master/Lab5) || [Codepen: Lab 5 checker](https://codepen.io/AnneliesB/pen/QPLYpm)
 
+## Lab 6: Websockets
+[Repo: websockets](https://github.com/AnneliesB/webtech3-portfolio-lab6) 
+
+[Heroku: Poll Maker (met localstorage)](http://young-fjord-74581.herokuapp.com/createpoll)
