@@ -27,4 +27,4 @@ Portfolio voor alle labo's van webtech 3
 ## Lab 6: Websockets
 [Repo: websockets](https://github.com/AnneliesB/webtech3-portfolio-lab6) 
 
-[Heroku: Poll Maker (met localstorage)](http://young-fjord-74581.herokuapp.com/createpoll)
+[Heroku: Poll Maker (combinatie primus.write met localstorage)](http://young-fjord-74581.herokuapp.com/createpoll)
