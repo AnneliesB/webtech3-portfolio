@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var cors = require('cors');
 
+app.use(cors());
+
 let messageController = require('../controllers/message');
 
 /* GET home page. */
